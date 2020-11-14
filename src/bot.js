@@ -11,12 +11,22 @@ client.on('ready', () => {
 client.on('message', (message) => {
     if(message.author.bot) {return}
     
+    message.suppressEmbeds(true);
+
     const messageSplit = message.content.split(' ');
     if(messageSplit[0] !== '!bot') {return}
     
+    // console.log();
+
+    // message.edit(message.cleanContent)
+
     switch(messageSplit[1]) {
         case 'w2g':
-            if (messageSplit[2] === null || messageSplit[2] === undefined || messageSplit[2] === "") {return}
+            if (messageSplit[2] === null || messageSplit[2] === undefined || messageSplit[2] === "") {
+                message.channel.send('Lost! Gib mir ne URL: ```js\n!bot w2g https://youtu.be/dQw4w9WgXcQ?t=42```')
+                return
+            }
+
             const body = { 
                 "w2g_api_key" : process.env.W2G_KEY,
                 "share" : messageSplit[2],
@@ -25,16 +35,16 @@ client.on('message', (message) => {
             }
 
             fetch ('https://w2g.tv/rooms/create.json', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(body),
-                    })
-                    .then(response => response.json())
-                    .then((data) => {
-                        message.channel.send(`https://w2g.tv/rooms/${data.streamkey}`);
-                    });
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(body),
+                })
+                .then(response => response.json())
+                .then((data) => {
+                    message.channel.send(`https://w2g.tv/rooms/${data.streamkey}`);
+                });
             return;
     }
 });
