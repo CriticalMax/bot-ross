@@ -15,10 +15,6 @@ client.on('message', (message) => {
 
     const messageSplit = message.content.split(' ');
     if(messageSplit[0] !== '!bot') {return}
-    
-    // console.log();
-
-    // message.edit(message.cleanContent)
 
     switch(messageSplit[1]) {
         case 'w2g':
