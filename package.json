@@ -1,0 +1,27 @@
+{
+  "name": "bot-ross",
+  "version": "1.0.0",
+  "description": "Simple Discord Bot",
+  "main": "src/bot.js",
+  "scripts": {
+    "start": "node ./src/bot.js",
+    "dev": "nodemon ./src/bot.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CriticalMax/bot-ross.git"
+  },
+  "keywords": [
+    "discord-bot"
+  ],
+  "author": "Max Belohoubek",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CriticalMax/bot-ross/issues"
+  },
+  "homepage": "https://github.com/CriticalMax/bot-ross#readme",
+  "dependencies": {
+    "discord.js": "^12.4.1",
+    "dotenv": "^8.2.0"
+  }
+}
