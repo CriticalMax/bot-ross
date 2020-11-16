@@ -13,13 +13,20 @@ client.on('message', (message) => {
     if(message.author.bot) {return}
 
     const messageSplit = message.content.split(' ');
+    const botCommands = botInfo.botCommands.map(a => a.name);
+    const botAlias = botInfo.botCommands.map(a => a.alias);
+
     if(messageSplit[0] !== botInfo.botTrigger) {return}
-    if(!botInfo.botCommands.includes(messageSplit[1])) {
+    if(!botCommands.includes(messageSplit[1]) && !botAlias.includes(messageSplit[1]) ) {
         message.channel.send(botInfo.botErrors.commandNotFound);
         return;
     }
 
     switch(messageSplit[1]) {
+        case 'h':
+        case 'help':
+            message.channel.send('Available Commands:```js\nw2g\nhelp```');
+            return;
         case 'w2g':
             message.suppressEmbeds(true);
             if (messageSplit[2] === null || messageSplit[2] === undefined || messageSplit[2] === "") {

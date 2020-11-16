@@ -1,8 +1,17 @@
 module.exports  = {
     botTrigger: "!bot",
-    botCommands: ["w2g"],
+    botCommands: [
+        {
+            name: "w2g",
+            alias: null,
+        },
+        {
+            name: "help",
+            alias: "h"
+        }
+    ],
     botErrors: {
-        commandNotFound: "Command wurde nicht gefunden. Commands:```js\nw2g```"
+        commandNotFound: "Command wurde nicht gefunden. Commands:```js\nw2g\nhelp```"
     },
     w2g: {
         createRoom: {
