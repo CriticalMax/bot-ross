@@ -1,4 +1,5 @@
 module.exports  = {
+    botCommand: "!bot",
     w2g: {
         createRoom: {
             uri: "https://w2g.tv/rooms/create.json",
