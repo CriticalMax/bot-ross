@@ -15,6 +15,9 @@ module.exports  = {
                 }),
             },
             replyUrl: "https://w2g.tv/rooms/",
+            errors: {
+                missingUri: "Lost! Gib mir ne URL: ```js\n!bot w2g https://youtu.be/dQw4w9WgXcQ?t=42```"
+            }
         }
     }
 }

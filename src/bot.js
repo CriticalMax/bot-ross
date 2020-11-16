@@ -19,7 +19,7 @@ client.on('message', (message) => {
         case 'w2g':
             message.suppressEmbeds(true);
             if (messageSplit[2] === null || messageSplit[2] === undefined || messageSplit[2] === "") {
-                message.channel.send('Lost! Gib mir ne URL: ```js\n!bot w2g https://youtu.be/dQw4w9WgXcQ?t=42```')
+                message.channel.send(botInfo.w2g.createRoom.errors.missingUri)
                 return
             }
 
