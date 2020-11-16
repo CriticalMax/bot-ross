@@ -1,5 +1,9 @@
 module.exports  = {
-    botCommand: "!bot",
+    botTrigger: "!bot",
+    botCommands: ["w2g"],
+    botErrors: {
+        commandNotFound: "Command wurde nicht gefunden. Commands:```js\nw2g```"
+    },
     w2g: {
         createRoom: {
             uri: "https://w2g.tv/rooms/create.json",

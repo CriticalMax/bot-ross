@@ -13,7 +13,11 @@ client.on('message', (message) => {
     if(message.author.bot) {return}
 
     const messageSplit = message.content.split(' ');
-    if(messageSplit[0] !== botInfo.botCommand) {return}
+    if(messageSplit[0] !== botInfo.botTrigger) {return}
+    if(!botInfo.botCommands.includes(messageSplit[1])) {
+        message.channel.send(botInfo.botErrors.commandNotFound);
+        return;
+    }
 
     switch(messageSplit[1]) {
         case 'w2g':
